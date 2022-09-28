@@ -1,0 +1,54 @@
+            //Ezeket kell a "static void Main(string[] args)"-en belülre
+            /*//Saját
+            double a, b;
+            Console.Write("Kérem az 'a'-t: ");
+            a = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Kérem az 'b'-t: ");
+            b = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Összeadás: {a+b}\nKivonás: {a-b} \nSzorzás: {a*b} \nOsztás: {a/b}");
+            */
+
+            /*//Tanár*/
+            int a, b; //vagy double
+            //string aStr, bStr;
+            bool sikeresKonvA, sikeresKonvB;
+            
+            //Console.Write("Add meg a értékét: ");
+            //aStr = Console.ReadLine()
+            //a = int.Parse(Console.ReadLine());
+            do
+            {
+                Console.Write("Add meg a értékét: ");
+                sikeresKonvA = int.TryParse(Console.ReadLine(), out a); //TryParse - így nem áll le a program hibával. Ha rossz adatot adtunk meg, akkor 0-lesz az érték
+            } while (!sikeresKonvA);
+            if (!sikeresKonvA)
+            {
+                Console.WriteLine("Nem számot adtál meg (a)!");
+            }
+
+            //Console.Write("Add meg b értékét: ");
+            //bStr = Console.ReadLine();
+            //b = int.Parse(Console.ReadLine());
+            do
+            {
+                Console.Write("Add meg b értékét: ");
+                sikeresKonvB = int.TryParse(Console.ReadLine(), out b);
+            } while (!sikeresKonvB);
+            
+            if (!sikeresKonvB)
+            {
+                Console.WriteLine("Nem számot adtál meg (b)!");
+            }
+
+            if (sikeresKonvA && sikeresKonvB)
+            {
+                Console.WriteLine($"{a} + {b} = {a + b}");
+                Console.WriteLine($"{a} - {b} = {a - b}");
+                Console.WriteLine($"{a} * {b} = {a * b}");
+                Console.WriteLine($"{a} / {b} = {(double)a / (double)b}"); //ha fönt double, akkor nem kell itt használni
+            }
+
+
+            //------------------------------
+            Console.WriteLine("VÉGE");
+            Console.ReadKey();
